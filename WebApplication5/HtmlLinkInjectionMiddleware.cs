@@ -9,7 +9,7 @@ using Random = System.Security.Cryptography.RandomNumberGenerator;
 
 namespace WebApplication5
 {
-    public class ThisIsFineMiddleware : IMiddleware
+    public class HtmlLinkInjectionMiddleware : IMiddleware
     {
         private readonly IReadOnlyList<string> _links = new[]
         {
@@ -62,7 +62,7 @@ namespace WebApplication5
                 var bytes = Encoding.UTF8.GetBytes(body);
                 memoryStream.Write(bytes, 0, bytes.Length);
                 memoryStream.Seek(0, SeekOrigin.Begin);
-                await memoryStream.CopyToAsync(stream, bytes.Length);
+                await memoryStream.CopyToAsync(stream);
             }
             else
             {

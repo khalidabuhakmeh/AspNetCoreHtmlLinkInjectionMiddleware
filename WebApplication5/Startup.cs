@@ -18,7 +18,7 @@ namespace WebApplication5
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ThisIsFineMiddleware>();
+            services.AddScoped<HtmlLinkInjectionMiddleware>();
             services.AddRazorPages();
         }
 
@@ -37,7 +37,7 @@ namespace WebApplication5
             }
 
             app.UseHttpsRedirection();
-            app.UseMiddleware<ThisIsFineMiddleware>();
+            app.UseMiddleware<HtmlLinkInjectionMiddleware>();
             app.UseStaticFiles();
 
             app.UseRouting();
